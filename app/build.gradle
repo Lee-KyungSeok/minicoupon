@@ -1,0 +1,132 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId "io.gameper.gampingmall"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "GAMPPING_MALL_API", "\"http://13.209.32.39:28080/\""
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+    }
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+    dataBinding {
+        enabled true
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$androidxVersion"
+    implementation "androidx.recyclerview:recyclerview:$androidxVersion"
+    implementation "com.google.android.material:material:$androidxVersion"
+    implementation "androidx.cardview:cardview:$androidxVersion"
+    implementation "com.google.android.material:material:$googleMaterialVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+
+    // ViewModel and LiveData
+    implementation "androidx.lifecycle:lifecycle-extensions:$archComponentVersion"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$archComponentVersion"
+
+    // Room
+    implementation "androidx.room:room-runtime:$archComponentVersion"
+    implementation "androidx.room:room-rxjava2:$archComponentVersion"
+    kapt "androidx.room:room-compiler:$archComponentVersion"
+
+    // Paging
+    implementation "androidx.paging:paging-runtime:$archComponentVersion"
+    implementation "androidx.paging:paging-rxjava2:$archComponentVersion"
+
+    // shimmerlayout
+    implementation "com.facebook.shimmer:shimmer:$shimmerVersion"
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    kapt "com.github.bumptech.glide:compiler:$glideVersion"
+
+    // Lottie
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+
+    // OkHttp
+    implementation "com.squareup.okhttp3:okhttp:$okHttpVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okHttpVersion"
+
+    // Gson
+    implementation "com.google.code.gson:gson:$gsonVersion"
+
+    // RxJava
+    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    implementation "com.jakewharton.rxrelay2:rxrelay:$rxRelayVersion"
+
+    // RxBinding
+    implementation "com.jakewharton.rxbinding3:rxbinding:$rxBindingVersion"
+    implementation "com.jakewharton.rxbinding3:rxbinding-appcompat:$rxBindingVersion"
+    implementation "com.jakewharton.rxbinding3:rxbinding-recyclerview:$rxBindingVersion"
+
+    // RxLifecycle
+    implementation "com.trello.rxlifecycle3:rxlifecycle:$rxLifecycleVersion"
+    implementation "com.trello.rxlifecycle3:rxlifecycle-android:$rxLifecycleVersion"
+    implementation "com.trello.rxlifecycle3:rxlifecycle-components:$rxLifecycleVersion"
+
+    // Dagger
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "com.google.dagger:dagger-android:$daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+
+    // web3
+    implementation('org.web3j:core:3.3.1-android')
+
+    // bitcoin j
+//    implementation('org.bitcoinj:bitcoinj-core:0.14.7') {
+//        exclude module: 'scrypt'
+//    }
+
+    // zxing (barcode)
+    implementation "com.google.zxing:core:$zxingVersion"
+
+    // test
+    testImplementation "junit:junit:$junitVersion"
+    testImplementation "androidx.arch.core:core-testing:$archComponentVersion"
+    testImplementation "androidx.room:room-testing:$archComponentVersion"
+    androidTestImplementation "androidx.test:runner:$testRunnerVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+}

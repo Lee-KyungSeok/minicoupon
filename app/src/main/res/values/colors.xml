@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!--temp color-->
+    <color name="colorBlackE">#EEEEEE</color>
+    <color name="colorRed">#ff0000</color>
+    <color name="colorBurgundy">#630404</color>
+    <color name="colorPink">#ff99cc</color>
+    <color name="colorBeige">#c9a76d</color>
+    <color name="colorDarkBlue">#003366</color>
+    <color name="colorGray">#808080</color>
+    <color name="colorDarkGreen">#065454</color>
+    <color name="colorGoldGreen">#a3b846</color>
+    <color name="colorBlueOfSea">#3366ff</color>
+    <color name="colorOrangeMuffler">#e06d1f</color>
+    <color name="colorBlackD">#dddddd</color>
+    <color name="colorLittleBlack">#999999</color>
+    <color name="translucent">#77FFFFFF</color>
+
+</resources>

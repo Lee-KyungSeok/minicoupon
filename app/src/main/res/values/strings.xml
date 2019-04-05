@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">GampingMall</string>
+
+    <!--temp email-->
+    <string name="name_yun">yoe21c\u0040gmail.com</string>
+    <string name="name_lee">leeseok8347\u0040gmail.com</string>
+    <string name="name_ko">ko6379\u0040naver.com</string>
+
+    <!-- menu -->
+    <string name="widget_bottom_menu_home">Home</string>
+    <string name="widget_bottom_menu_present">Present</string>
+    <string name="widget_bottom_menu_account">My Info</string>
+
+    <!--shop-->
+    <string name="selling_price">%1$s%2$s</string>
+    <string name="price">%1$s%2$s</string>
+    <string name="tempImpossible">용산미8군점, 용산타운하우스점, 오산에어베이스점, 평택험프리점, 평택험프리 트룹몰점, 평택험프리 메인몰점, 대구캠프워커점, 군산에어베이스점, 캠프캐롤점, 캠프케이시점, 오션월드점, 오션월드입구점, 설악워터피아점 등</string>
+    <string name="tempPrecautions">물품교환형 상품의 기본 유효기간은 3개월입니다. \n
+상품 특성에 따라 유효기간이 상이할 수 있으니 전송받은 쿠폰의 유효기간을 꼭 확인부탁드립니다. \n
+일부 핸드폰에서 동일 번호로 다량의 기프티쇼 MMS를 받을 경우, MMS 이미지가 자동삭제 되는 사례가 간혹 있사오니 사용하신 기프티쇼는 삭제하여 주시기 바랍니다. \n
+\n
+[발행자] \n
+㈜케이티엠하우스 \n
+\n
+[구매취소]\n
+구매일로부터 7일 이내에는 구매취소가 가능하며, 주문취소를 신청할 경우 결제 승인을 취소합니다.\n
+단, 결제수단 및 취소 시점에 따라 승인 취소가 불가능할 수 있으며, 이 경우 금액의 포인트 적립 또는 인증된 계좌로 현금 환급을 신청하실 수 있습니다.\n
+단, 특정 이벤트 상품 및 기프티쇼 캐시 결제를 통한 구매 상품의 경우 구매 취소가 불가합니다. (기프티쇼 포인트 결제 건의 경우 취소 가능)\n
+\n
+[유효기간 연장]\n
+기프티쇼의 유효기간 이내에 수신자가 신청 가능하며, 기본 3개월 단위로 연장됩니다.\n
+구매취소, 교환, 환불처리된 기프티쇼이거나 특별한 사유가 있는 경우 연장이 불가합니다.\n
+특정 이벤트 상품 및 기프티쇼 캐시 결제를 통한 구매 상품의 경우 연장이 불가합니다. (기프티쇼 포인트 결제 건의 경우 연장 가능)\n
+\n
+[미사용 기프티쇼 환불]\n
+유효기간 이내에 사용하지 못하신 경우, 5년 이내에 환불이 가능하며 결제금액의 90%를 환불해드립니다.\n
+유효기간 만료일로부터 180일 이내에는 수신자가 환불신청 가능하며, 수신자가 유효기간 만료일로부터 180일동안 환불 요청하지 않을 경우, 구매자 (회원)에게 포인트로 자동환불됩니다. (비회원 구매 제외)\n
+특정 이벤트 상품 및 기프티쇼 캐시 결제를 통한 구매상품의 경우 환불이 불가합니다.\n
+(기프티쇼 포인트 결제 건의 경우 환불 가능)\n
+\n
+[지급보증사항]\n
+본 교환권은 별도의 지급보증 또는 피해보상보험이 적용되지 않습니다.\n</string>
+</resources>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="viewModel"
+                type="io.gameper.gampingmall.presentation.main.shop.detail.presenting.presenting_sms.PresentingSMSViewModel"/>
+    </data>
+
+    <io.gameper.gampingmall.presentation.main.shop.detail.presenting.presenting_sms.PresentingSMSView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+        <TextView
+                android:id="@+id/textViewPhoneSelectTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="받을 사람 휴대폰 번호 입력"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <EditText
+                android:id="@+id/editTextPhoneSelect"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:hint="겜퍼유저 아니면 에러 (01091248347 로 테스트)"
+                android:layout_marginTop="8dp"
+                android:overScrollMode="always"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintTop_toBottomOf="@+id/textViewPhoneSelectTitle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:inputType="phone"/>
+
+    </io.gameper.gampingmall.presentation.main.shop.detail.presenting.presenting_sms.PresentingSMSView>
+</layout>

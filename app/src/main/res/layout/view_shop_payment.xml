@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="io.gameper.gampingmall.presentation.main.shop.payment.PaymentViewModel"/>
+    </data>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+            <TextView
+                    android:id="@+id/textViewProductTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="주문 상품"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                    android:id="@+id/textViewProductName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.product.productName}"
+                    android:textSize="16dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewProductTitle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                    android:id="@+id/textViewProductAmount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{`수량: ` + String.valueOf(viewModel.quantity) + ` 개` }"
+                    android:textSize="12dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewProductName"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                    android:id="@+id/textViewPriceTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="내 결제 금액"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewProductAmount"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <LinearLayout
+                    android:id="@+id/containerPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="#bbbbbb"
+                    android:layout_marginTop="8dp"
+                    android:padding="8dp"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewPriceTitle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="textStart"
+                        android:textSize="16dp"
+                        android:text="구매 금액"
+                        />
+
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="textEnd"
+                        android:textSize="16dp"
+                        android:text="@{viewModel.product.price + ` 캐시`}"
+                        />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/containerDisCountPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="#eeeeee"
+                    android:padding="8dp"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/containerPrice"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="textStart"
+                        android:textSize="16dp"
+                        android:text="할인 금액"
+                        />
+
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="textEnd"
+                        android:textSize="16dp"
+                        android:text=" (-) 130 캐시"
+                        />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/containerSellingPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/colorBurgundy"
+                    android:padding="8dp"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/containerDisCountPrice"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="textStart"
+                        android:textColor="@android:color/white"
+                        android:textSize="16dp"
+                        android:text="결제 예정 금액"
+                        />
+
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="textEnd"
+                        android:textColor="@android:color/white"
+                        android:textSize="16dp"
+                        android:text="@{viewModel.product.sellingPrice + ` 원`}"
+                        />
+
+            </LinearLayout>
+
+            <TextView
+                    android:id="@+id/textViewPaymentSelectorTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="결제 방법"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/containerSellingPrice"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+            
+            <Button
+                    android:id="@+id/buttonCredit"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="신용카드"
+                    android:textSize="16dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewPaymentSelectorTitle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <Button
+                    android:id="@+id/buttonAccount"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="계좌이체"
+                    android:textSize="16dp"
+                    android:enabled="false"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonCredit"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <Button
+                    android:id="@+id/buttonKakaopay"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="카카오페이"
+                    android:textSize="16dp"
+                    android:enabled="false"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonAccount"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <Button
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/purchase_button_interval"
+                    android:background="@color/colorRed"
+                    android:textColor="@android:color/white"
+                    android:text="결제하기"
+                    android:onClick="@{() -> viewModel.onPayClick()}"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/buttonKakaopay"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

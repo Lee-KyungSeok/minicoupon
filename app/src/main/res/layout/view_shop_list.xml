@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="io.gameper.gampingmall.presentation.main.shop.list.ShopListViewModel"/>
+    </data>
+
+    <io.gameper.gampingmall.presentation.main.shop.list.ShopListView
+            android:id="@+id/shopListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#bbbbbb"
+            android:padding="8dp">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/viewMainShopSale"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="10dp"
+                android:paddingBottom="8dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:background="#ffffff"
+                android:onClick="@{() -> viewModel.onClick(viewModel.saleGift)}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                    android:id="@+id/textViewTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ff0000"
+                    android:text="이벤트"
+                    android:textSize="20dp"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/imageViewMainSale"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+
+            <ImageView
+                    android:id="@+id/imageViewMainSale"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:imageFromUrl="@{viewModel.saleGift.imageUrl}"
+                    android:scaleType="centerCrop" tools:srcCompat="@android:color/darker_gray"/>
+
+            <TextView
+                    android:id="@+id/textViewMainShopSaleBrand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.saleGift.brandName}"
+                    android:textSize="12dp"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintTop_toBottomOf="@+id/imageViewMainSale"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                    android:id="@+id/textViewMainShopSaleProductName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:text="@{viewModel.saleGift.productName}"
+                    android:textSize="18dp"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewMainShopSaleBrand"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                    android:id="@+id/textViewMainShopSaleSellingPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:text="@{@string/selling_price(viewModel.saleGift.priceSymbol,viewModel.saleGift.sellingPrice)}"
+                    android:textSize="18dp"
+                    android:layout_marginTop="6dp"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewMainShopSaleProductName"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                    android:id="@+id/textViewMainShopSalePrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/price(viewModel.saleGift.priceSymbol,viewModel.saleGift.price)}"
+                    android:textSize="13dp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintVertical_bias="1"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintTop_toTopOf="@+id/textViewMainShopSaleSellingPrice"
+                    app:layout_constraintStart_toEndOf="@+id/textViewMainShopSaleSellingPrice"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewMainShopSaleSellingPrice"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                    android:id="@+id/textViewMainShopSaleRate"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:textAlignment="center"
+                    android:background="#ff0000"
+                    android:text="@{String.valueOf(viewModel.saleGift.discountRate) +  `off`}"
+                    android:textSize="20dp"
+                    app:layout_constraintDimensionRatio="1:1.5"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewMainSale"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewMainShopList"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="60dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewMainShopSale"
+                app:bind_gifts="@{viewModel.shopGiftList}"
+                tools:listitem="@layout/item_shop_list"/>
+
+    </io.gameper.gampingmall.presentation.main.shop.list.ShopListView>
+
+</layout>

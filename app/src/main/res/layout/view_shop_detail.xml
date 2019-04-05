@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+
+    <data>
+        <variable
+                name="viewModel"
+                type="io.gameper.gampingmall.presentation.main.shop.detail.ShopDetailViewModel"/>
+    </data>
+
+    <io.gameper.gampingmall.presentation.main.shop.detail.ShopDetailView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/shop_detail_padding"
+            >
+
+        <ScrollView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayoutPurchaseSelect">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <ImageView
+                        android:id="@+id/imageViewShopDetail"
+                        android:layout_width="0dp"
+                        android:layout_height="150dp"
+                        android:scaleType="fitCenter"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:imageFromUrl="@{viewModel.product.imageUrl}"/>
+
+                <TextView
+                        android:id="@+id/textViewMainShopDetailBrand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.product.brandName}"
+                        android:textSize="10dp"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintTop_toBottomOf="@+id/imageViewShopDetail"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                        android:id="@+id/textViewMainShopDetailProductName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:text="@{viewModel.product.productName}"
+                        android:textSize="12dp"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewMainShopDetailBrand"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                        android:id="@+id/textViewMainShopDetailPriceName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="정상가"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintHorizontal_bias="0.4"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewMainShopDetailProductName"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                        android:id="@+id/textViewMainShopDetailPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:text="@{@string/selling_price(viewModel.product.priceSymbol,viewModel.product.sellingPrice)}"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewMainShopDetailProductName"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/textViewMainShopDetailPriceName"/>
+
+                <TextView
+                        android:id="@+id/textViewMainShopDetailSellingPriceName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="회원가"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintHorizontal_bias="0.4"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewMainShopDetailPriceName"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                        android:id="@+id/textViewMainShopListItemSellingPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:text="@{@string/price(viewModel.product.priceSymbol,viewModel.product.price)}"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewMainShopDetailPriceName"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/textViewMainShopDetailSellingPriceName"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                        android:id="@+id/textViewMainShopDetailPlaceName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="교환처"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintHorizontal_bias="0.4"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewMainShopDetailSellingPriceName"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                        android:id="@+id/textViewMainShopDetailPlace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:text="@{viewModel.product.brandName}"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewMainShopDetailSellingPriceName"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/textViewMainShopDetailPlaceName"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                        android:id="@+id/textViewMainShopDetailExpirationName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="유효기간"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintHorizontal_bias="0.4"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewMainShopDetailPlaceName"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                        android:id="@+id/textViewMainShopDetailExpiration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:text="93일"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewMainShopDetailPlaceName"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/textViewMainShopDetailExpirationName"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                        android:id="@+id/textViewMainShopDetailDescriptionName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="상품설명"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewMainShopDetailExpiration"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                        android:id="@+id/textViewMainShopDetailDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:text="@{viewModel.product.description}"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewMainShopDetailDescriptionName"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                        android:id="@+id/textViewMainShopDetailTempName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="사용 불가매장"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewMainShopDetailDescription"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                        android:id="@+id/textViewMainShopDetailTemp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:text="@string/tempImpossible"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewMainShopDetailTempName"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                        android:id="@+id/textViewMainShopDetailTemp2Name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="주의 사항"
+                        android:layout_marginTop="16dp"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewMainShopDetailTemp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                        android:id="@+id/textViewMainShopDetailTemp2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:text="@string/tempPrecautions"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewMainShopDetailTemp2Name"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+
+                <TextView
+                        android:id="@+id/textViewMainShopListItemRate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:background="#ff0000"
+                        android:paddingRight="4dp"
+                        android:paddingLeft="4dp"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="2dp"
+                        android:text="@{String.valueOf(viewModel.product.discountRate) +  `%`}"
+                        android:textSize="15dp"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintHorizontal_bias="1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewShopDetail"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <LinearLayout
+                android:id="@+id/linearLayoutPurchaseSelect"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/purchase_button_interval"
+                android:orientation="horizontal"
+                android:visibility="visible"
+                app:layout_constraintVertical_bias="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                >
+
+            <Button
+                    android:id="@+id/buttonPresent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{() -> viewModel.onPresentClick()}"
+                    android:text="선물하기"
+                    />
+
+            <Button
+                    android:id="@+id/buttonPurchase"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{() -> viewModel.onPurchaseClick()}"
+                    android:text="구매하기"
+                    />
+        </LinearLayout>
+
+    </io.gameper.gampingmall.presentation.main.shop.detail.ShopDetailView>
+
+</layout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<io.gameper.gampingmall.presentation.main.bottom.BottomView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@android:color/white"
+        app:menu="@menu/menu_widget_bottom">
+
+</io.gameper.gampingmall.presentation.main.bottom.BottomView>

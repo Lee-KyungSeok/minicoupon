@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+                name="viewModel"
+                type="io.gameper.gampingmall.presentation.main.present_box.received_present.received_detail.ReceivedDetailViewModel"/>
+    </data>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:focusable="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                    android:id="@+id/imageViewReceivedDetail"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintWidth_percent="0.4"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:imageFromUrl="@{viewModel.product.imageUrl}"/>
+
+            <TextView
+                    android:id="@+id/textViewReceivedDetailBrand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.product.brandName}"
+                    android:textSize="16dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewReceivedDetailProductName"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewReceivedDetail"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+            <TextView
+                    android:id="@+id/textViewReceivedDetailProductName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:maxLines="2"
+                    android:textSize="21dp"
+                    android:text="@{viewModel.product.productName}"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewReceivedDetailBrand"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewReceivedDetailExpiredTitle"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewReceivedDetail"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                    android:id="@+id/textViewReceivedDetailExpiredTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="사용기간: "
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewReceivedDetailProductName"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewReceivedDetailPlaceTitle"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewReceivedDetail"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+
+            <TextView
+                    android:id="@+id/textViewReceivedDetailSellingPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_marginStart="10dp"
+                    app:convertExpiredDateToString="@{viewModel.product.expiredAt}"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewReceivedDetailExpiredTitle"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewReceivedDetailExpiredTitle"
+                    app:layout_constraintStart_toEndOf="@+id/textViewReceivedDetailExpiredTitle"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                    android:id="@+id/textViewReceivedDetailPlaceTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="교환처: "
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewReceivedDetailSellingPrice"
+                    app:layout_constraintBottom_toTopOf="@+id/dividerProduct"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewReceivedDetail"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                    android:id="@+id/textViewReceivedDetailPlace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:text="@{viewModel.product.brandName}"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintTop_toTopOf="@+id/textViewReceivedDetailPlaceTitle"
+                    app:layout_constraintBottom_toBottomOf="@+id/textViewReceivedDetailPlaceTitle"
+                    app:layout_constraintStart_toEndOf="@+id/textViewReceivedDetailPlaceTitle"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <View
+                    android:id="@+id/dividerProduct"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="4dp"
+                    android:background="#555555"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintTop_toBottomOf="@+id/imageViewReceivedDetail"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+            <ImageView
+                    android:id="@+id/imageViewReceivedDetailBarCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:onClick="@{() -> viewModel.onBarcodeClick()}"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintTop_toBottomOf="@+id/dividerProduct"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:barcodeFromText="@{viewModel.product.productCode}"
+                    />
+
+            <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
+                    android:background="#88ffffff"
+                    app:checkVisibleByStatus="@{viewModel.product.status}"
+                    app:layout_constraintWidth_percent="0.4"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                <TextView
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="사용 완료"
+                        android:textSize="20dp"
+                        android:textColor="#000000"/>
+
+            </FrameLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

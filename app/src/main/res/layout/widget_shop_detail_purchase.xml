@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+                name="viewModel"
+                type="io.gameper.gampingmall.presentation.main.shop.detail.purchase_selector.PurchaseSelectorViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#eeeeee"
+            android:clickable="true"
+            android:padding="@dimen/shop_detail_padding">
+
+        <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                app:layout_constraintVertical_bias="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/buttonDetailPurchase">
+
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:layout_marginEnd="10dp"
+                    android:text="수량"/>
+
+            <Button
+                    android:id="@+id/buttonDecreaseAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="-"
+                    android:onClick="@{() -> viewModel.onDecreaseClick()}"/>
+
+            <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:textAlignment="center"
+                    android:text="@{Integer.toString(viewModel.quantity)}"/>
+
+            <Button
+                    android:id="@+id/buttonIncreaseAmount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="+"
+                    android:onClick="@{() -> viewModel.onIncreaseClick()}"/>
+
+        </LinearLayout>
+
+        <Button
+                android:id="@+id/buttonDetailPurchase"
+                android:text="구매하기"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/purchase_button_interval"
+                android:onClick="@{() -> viewModel.onPurchaseClick()}"
+                app:layout_constraintVertical_bias="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

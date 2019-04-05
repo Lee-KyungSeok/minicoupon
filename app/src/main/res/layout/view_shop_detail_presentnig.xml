@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+                name="viewModel"
+                type="io.gameper.gampingmall.presentation.main.shop.detail.presenting.PresentingViewModel"/>
+    </data>
+
+    <io.gameper.gampingmall.presentation.main.shop.detail.presenting.PresentingView
+            android:clickable="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@android:color/white"
+            android:padding="@dimen/shop_detail_padding"
+            >
+
+        <ScrollView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayoutPurchaseSelect">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <ImageView
+                        android:id="@+id/imageViewShopPresenting"
+                        android:layout_width="0dp"
+                        android:layout_height="150dp"
+                        android:scaleType="fitCenter"
+                        app:layout_constraintWidth_percent="0.4"
+                        app:layout_constraintWidth_default="percent"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:imageFromUrl="@{viewModel.product.imageUrl}"/>
+
+                <TextView
+                        android:id="@+id/textViewPresentingDiscountRate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:background="#cdcd00"
+                        android:text="@{String.valueOf(viewModel.product.discountRate) + `%`}"
+                        android:textSize="15dp"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewShopPresenting"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/imageViewShopPresenting"/>
+
+                <TextView
+                        android:id="@+id/textViewPresentingProductName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:text="@{viewModel.product.productName}"
+                        android:layout_marginStart="10dp"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/textViewPresentingSellingPrice"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewShopPresenting"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+                <TextView
+                        android:id="@+id/textViewPresentingSellingPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="#ff0000"
+                        android:text="@{String.valueOf(viewModel.product.sellingPrice) + ` 캐시`}"
+                        android:layout_marginStart="10dp"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewPresentingProductName"
+                        app:layout_constraintBottom_toTopOf="@+id/textViewPresentingPlaceTitle"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewShopPresenting"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                        android:id="@+id/textViewPresentingPlaceTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="교환처: "
+                        android:layout_marginStart="10dp"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewPresentingSellingPrice"
+                        app:layout_constraintBottom_toTopOf="@+id/dividerProduct"
+                        app:layout_constraintStart_toEndOf="@+id/imageViewShopPresenting"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                        android:id="@+id/textViewPresentingPlace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        android:text="@{viewModel.product.brandName}"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintHorizontal_bias="0"
+                        app:layout_constraintTop_toTopOf="@+id/textViewPresentingPlaceTitle"
+                        app:layout_constraintBottom_toBottomOf="@+id/textViewPresentingPlaceTitle"
+                        app:layout_constraintStart_toEndOf="@+id/textViewPresentingPlaceTitle"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                <View
+                        android:id="@+id/dividerProduct"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="4dp"
+                        android:background="#555555"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintTop_toBottomOf="@+id/imageViewShopPresenting"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+
+                <EditText
+                        android:id="@+id/editTextPresentingMessage"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:hint="메시지를 입력해주세요"
+                        android:layout_marginTop="4dp"
+                        android:height="150dp"
+                        android:maxHeight="150dp"
+                        android:overScrollMode="always"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintTop_toBottomOf="@+id/dividerProduct"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:inputType="textMultiLine|textNoSuggestions"/>
+
+                <TextView
+                        android:id="@+id/textViewFrom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="From 이*석"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintHorizontal_bias="1"
+                        app:layout_constraintTop_toBottomOf="@+id/editTextPresentingMessage"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                <View
+                        android:id="@+id/dividerMessage"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="#555555"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewFrom"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+
+                <Button
+                        android:id="@+id/imageButtonSMS"
+                        android:layout_width="100dp"
+                        android:layout_height="60dp"
+                        android:text="문자"
+                        android:onClick="@{() -> viewModel.onSMSClick()}"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintTop_toBottomOf="@+id/dividerMessage"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/imageButtonKakao"/>
+
+                <Button
+                        android:id="@+id/imageButtonKakao"
+                        android:layout_width="100dp"
+                        android:layout_height="60dp"
+                        android:text="카카오톡"
+                        android:onClick="@{() -> viewModel.onKakaoClick()}"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintTop_toBottomOf="@+id/dividerMessage"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageButtonSMS"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                <View
+                        android:id="@+id/dividerImageButton"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:background="#555555"
+                        app:layout_constraintVertical_bias="0"
+                        app:layout_constraintTop_toBottomOf="@+id/imageButtonSMS"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+
+                <FrameLayout
+                        android:id="@+id/containerPresentWay"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintTop_toBottomOf="@+id/dividerImageButton"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                </FrameLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <LinearLayout
+                android:id="@+id/linearLayoutPurchaseSelect"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/purchase_button_interval"
+                android:orientation="horizontal"
+                android:visibility="visible"
+                app:layout_constraintVertical_bias="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                >
+
+            <Button
+                    android:id="@+id/buttonPresent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{() -> viewModel.onCancelClick()}"
+                    android:text="취소"
+                    />
+
+            <Button
+                    android:id="@+id/buttonPurchase"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{() -> viewModel.onNextClick()}"
+                    android:text="다음"
+                    />
+        </LinearLayout>
+
+    </io.gameper.gampingmall.presentation.main.shop.detail.presenting.PresentingView>
+
+</layout>
